@@ -16,6 +16,30 @@ Este projeto foi reestruturado para separar o frontend (NextJS) do backend (Fast
 - GPU NVIDIA (opcional, para melhor performance de IA)
 
 ### Executar o projeto completo
+
+# Rodando em máquinas da AWS EC2 (Arthur)
+
+Instâncias EC2 da AWS geralmente não têm Docker Compose installado (apesar de terem Docker, o que é bem esquisito). Então, para rodar o pipeline usando Docker, os comandos têm de ser instalados. Para fazer isso em uma instância com Ubuntu:
+
+```sh
+# Certifica que pacotes padrão estão instalados e em cache
+sudo yum update -y
+# Garantindo que a instalação de Docker está presente e atualizada
+sudo yum install docker
+# Inicia o servidor Docker
+sudo service docker start
+# Inclui o usuário atual no grupo de usuários com permissão para rodar comandos Docker (caso a instância esteja "zerada")
+sudo usermod -a -G docker ec2-user
+# Nesse momento o usuário atual precisa ser desconectado e conectado novamente para que as permissões de grupo sejam atualizadas (fechando a aba e conectando novamente no console AWS EC2). Em seguida, verifique as novas permissões de usuário
+docker ps
+# Baixa e instala a versão atual do Docker Compose para o diretório do atual usuário
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# Verifica versão do Docker Compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+# Em seguida, o caminho normal pode ser retomado
+```
+
 ```bash
 # 1. Setup inicial (incluindo download do modelo)
 ./setup.sh
