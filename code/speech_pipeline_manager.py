@@ -125,7 +125,7 @@ class SpeechPipelineManager:
             llm_provider: str = "ollama",
             llm_model: str = "hf.co/bartowski/huihui-ai_Mistral-Small-24B-Instruct-2501-abliterated-GGUF:Q4_K_M",
             no_think: bool = False,
-            orpheus_model: str = "orpheus-3b-0.1-ft-Q8_0-GGUF/orpheus-3b-0.1-ft-q8_0.gguf",
+            orpheus_model: str = "freds0/orpheus-brspeech-3b-0.1-ft-32bits-GGUF",
         ):
         """
         Initializes the SpeechPipelineManager.
