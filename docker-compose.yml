@@ -15,6 +15,7 @@ services:
       - TTS_ORPHEUS_MODEL=freds0/orpheus-brspeech-3b-0.1-ft-32bits-GGUF
       - DIRECT_STREAM=true
       - LANGUAGE=pt
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
     volumes:
       # Mount models directory for persistent storage
       - ./models:/app/models
