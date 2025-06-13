@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y \
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir realtimestt==0.3.104
-RUN pip install --no-cache-dir 'realtimetts[kokoro,coqui,orpheus]==0.5.5'
+RUN pip install --no-cache-dir realtimestt
+RUN pip install --no-cache-dir realtimetts[all]
 RUN pip install --no-cache-dir fastapi
 RUN pip install --no-cache-dir uvicorn
 RUN pip install --no-cache-dir python-dotenv
