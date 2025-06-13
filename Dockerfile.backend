@@ -10,9 +10,12 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     python3-pip \
+    python3-dev \
     libsndfile1 \
     portaudio19-dev \
     libffi-dev \
+    ffmpeg \
+    libasound-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install Python dependencies
